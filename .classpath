@@ -2,5 +2,12 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/PC-14/eclipse-workspace/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-14/Downloads/bookstore/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-14/Downloads/bookstore/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-14/Downloads/bookstore/spring-beans-5.3.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-14/Downloads/bookstore/spring-core-5.3.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-14/Downloads/bookstore/spring-jdbc-5.3.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-14/Downloads/bookstore/spring-tx-5.3.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
