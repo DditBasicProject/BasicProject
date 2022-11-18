@@ -1,14 +1,19 @@
-package Order;
+package ProdOrd;
 
 import java.util.List;
+
+import Member.MemberVO;
 
 public class OrderService {
 
 	public static OrderService instance = new OrderService();
+
 	public static OrderService getInstance() {
 		return instance;
 	}
-	private OrderService() {}
+
+	private OrderService() {
+	}
 
 	private OrderDAO dao = OrderDAO.getInstance();
 
@@ -22,10 +27,20 @@ public class OrderService {
 	}
 
 	// 상품선택
-	public List<OrderVO> selectProd(){
+	public List<OrderVO> selectProd() {
 		return dao.selectProd();
 	}
-	public int insertOprod(OrderVO vo) {
-		return dao.insertOprod(vo);
+
+//   public int sum(OrderVO vo) {
+//      return dao.(vo);
+//   }
+//   
+	public int insertOrd(OrderVO vo) {
+		return dao.insertOrd(vo);
 	}
+
+	public int insertPastOrd(OrderVO vo) {
+		return dao.insertPastOrd(vo);
+	}
+
 }

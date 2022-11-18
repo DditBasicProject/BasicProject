@@ -1,17 +1,20 @@
 package Branda;
 
-import Branda.HomeMenu;
-import Branda.MenuNotFoundException;
 import Member.MemberController;
-import Order.OrderController;
+import Member.MemberVO;
+import Oprod.OprodController;
+import PastOrd.PastOrdController;
+import ProdOrd.OrderController;
 import Sign.SignController;
+
 
 public class BrandaHome {
 
     private MemberController memberController = MemberController.getInstance();
     private SignController signController = SignController.getInstance();
     private OrderController orderController = OrderController.getInstance();
-
+    private PastOrdController pastOrdController = PastOrdController.getInstance();
+    private OprodController oprodController = OprodController.getInstance();
     private BrandaView view = BrandaView.getInstance();
 
     public void initialize() {
@@ -27,7 +30,17 @@ public class BrandaHome {
                     case HOME:
                     case PROD:
                     case MAIN:
-                    	number = view.getMenu();
+                    case PROD_CART_YN:
+                    case PAY:
+                    case PAY_PAGE:
+                    case MEMBER:
+                       number = view.getMenu();
+                       break;
+                    case MEMBER_INFO:
+                    	number = view.getCustomerInfo(memberController);
+                    	break;
+                  case ORDER:
+                    	number = view.getOrdList(pastOrdController);
                     	break;
                     case JOIN:
                         number = view.member(memberController);
@@ -38,34 +51,22 @@ public class BrandaHome {
                     case LOGOUT:
                         number = signController.signOut();
                         break;
-                    case MEMBER:
                     case PROD_LIST:
-                    	number = view.getProdList(orderController);
-                    	break;
-                    	
-//                    case PROD_CART:
-//                    	//break;
-//                    case PROD_CART_YN:
-//                    	//break;
-//                    case ORDER:
-//                    	//break;
+                        number = view.getProdList(orderController);
+                        break;                	
+//                    case PROD_CART:   
+//                    case ORDER: 
+//                    	number = number = view.getOrdList(pastOrdController);
+//                    	break;                	
                     case MODIFY_ADDRESS:
-                        number = view.changeAdd(memberController);
-                        break;
-                     case MODIFY_PHONE:
-                        number = view.changePhNum(memberController);
-                        break;
-                     case MODIFY_PASSWORD: 
-                        number = view.changePw(memberController);
-                        break;
-                    case REVIEW:	
-                    	//break;
-                    case REVIEW_INSERT:	
-                    	//break;
-                    case REVIEW_UPDATE:	
-                    	//break;
-                    case REVIEW_DELETE:	
-                    	//break;
+                    	number = view.changeAdd(memberController);
+                    	break;
+                    case MODIFY_PHONE:
+                    	number = view.changePhNum(memberController);
+                    	break;
+                    case MODIFY_PASSWORD: 
+                    	number = view.changePw(memberController);
+                    	break;	
                     case QUIT:
                         break loop;
                 }
